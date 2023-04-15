@@ -10,7 +10,6 @@ const Formulario: NextPage = () =>{
     const router: any = useRouter()?.query?.parte  || 1
     const parte:number = router !== undefined ? parseInt(router) : 1
   
-    //console.log(parte)
 return (
     <Layout>
       {parte == 1 && <WelcomePage/> }

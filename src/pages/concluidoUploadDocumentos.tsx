@@ -21,7 +21,7 @@ function ConcluidoUploadDocumentos() {
     documentos é só aguardar o contato do <br />
      seu gestor.
     </h3>
-    <Link href="/">
+    <Link href="/bemVindoaEquipe">
     {/* {switchExame ? '/envioExameAdmissional' : "/concluidoEnvioExameAdmissional" }  */}
         <Button  >Ok</Button>
     </Link>

@@ -29,31 +29,32 @@ function UploadDocuments() {
   const uploadDocumentosHandler = async(e: FormEvent) => {
     e.preventDefault();
 
-    let formData: any = new FormData()
-    formData.append('identidade',identidade)
-    formData.append('certidao',certidaoBornOrMarried)
-    formData.append('carteira-trabalho',carteiraDeTrabalho )
-    formData.append('titulo-eleitor',tituloDeEleitor )
-    formData.append('certificado-reservista',certificadoDeReservista )
-    formData.append('comprovante-residencia',comprovanteDeResidência)
-    formData.append('comprovante-escolaridade',comprovanteDeEscolaridade )
-    formData.append('cartao-vacinacao',vacinação )
-    formData.append('comprovante-dados-bancarios',DadosBancarios )
-    formData.append('exame-admissional', ''),
+    router.push('/concluidoUploadDocumentos')
+  //   let formData: any = new FormData()
+  //   formData.append('identidade',identidade)
+  //   formData.append('certidao',certidaoBornOrMarried)
+  //   formData.append('carteira-trabalho',carteiraDeTrabalho )
+  //   formData.append('titulo-eleitor',tituloDeEleitor )
+  //   formData.append('certificado-reservista',certificadoDeReservista )
+  //   formData.append('comprovante-residencia',comprovanteDeResidência)
+  //   formData.append('comprovante-escolaridade',comprovanteDeEscolaridade )
+  //   formData.append('cartao-vacinacao',vacinação )
+  //   formData.append('comprovante-dados-bancarios',DadosBancarios )
+  //   formData.append('exame-admissional', ''),
 
-  axios.post('https://forms.api.apigethash.online/documents/uploadFields/' + userid , formData)
+  // axios.post('https://forms.api.apigethash.online/documents/uploadFields/' + userid , formData)
 
-  .then(res => { 
+  // .then(res => { 
 
-    if(res.status == 201) {
-      setLoading(true)
-      setTimeout(() => {
-        router.push('/concluidoUploadDocumentos')
-      }, 5000);
+  //   if(res.status == 201) {
+  //     setLoading(true)
+  //     setTimeout(() => {
+  //       router.push('/concluidoUploadDocumentos')
+  //     }, 5000);
       
-    }
-  }).catch(err => {
-  });
+  //   }
+  // }).catch(err => {
+  // });
 
 
   // .then((res) => {

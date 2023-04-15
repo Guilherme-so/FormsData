@@ -51,20 +51,22 @@ function DadosPessoais() {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    const isValidCpf = TestaCPF(cpf);
-    if (isValidCpf) {
-      setContextState({
-        userId: userid,
-        name: nomeCompleto,
-        phoneNumber: DDD?.dial_code + numero,
-        cpf: cpf,
-        personalEmail: email,
-        pisNis: pisOuNis,
-      });
-      router.push("/formulario/?parte=3");
-    } else {
-      setCpfError(true);
-    }
+    router.push("/formulario/?parte=3");
+
+    // const isValidCpf = TestaCPF(cpf);
+    // if (isValidCpf) {
+    //   setContextState({
+    //     userId: userid,
+    //     name: nomeCompleto,
+    //     phoneNumber: DDD?.dial_code + numero,
+    //     cpf: cpf,
+    //     personalEmail: email,
+    //     pisNis: pisOuNis,
+    //   });
+    //   router.push("/formulario/?parte=3");
+    // } else {
+    //   setCpfError(true);
+    // }
   };
 
   return (
@@ -78,7 +80,7 @@ function DadosPessoais() {
           placeholder="Nome Completo*"
           maxLength={50}
           value={nomeCompleto}
-          required
+          // required
           onChange={(event: any) => setNomeCompleto(event.target.value)}
         />
 
@@ -86,7 +88,7 @@ function DadosPessoais() {
           <Select
             onChange={SetDDD}
             value={DDD}
-            required
+            // required
             optionObject={codesAndFlags}
           />
 
@@ -97,7 +99,7 @@ function DadosPessoais() {
             onInput={(e: any) => (e.target.value = e.target.value.slice(0, 15))}
             maxLength={15}
             value={numero}
-            required
+            // required
             onChange={(event: any) => setNumero(event.target.value)}
           />
         </span>
@@ -106,7 +108,7 @@ function DadosPessoais() {
           className="inputSmt"
           type="number"
           placeholder="CPF*"
-          required
+          // required
           onInput={(e: any) => (e.target.value = e.target.value.slice(0, 11))}
           maxLength={11}
           value={cpf}
@@ -120,7 +122,7 @@ function DadosPessoais() {
           placeholder="E-mail Pessoal*"
           maxLength={40}
           value={email}
-          required
+          // required
           onChange={(event: any) => setEmail(event.target.value)}
         />
         <Input

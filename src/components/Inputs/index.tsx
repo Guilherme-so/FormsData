@@ -83,8 +83,6 @@ export function Select({
 }: any) {
   const [options, setOpetions] = useState<boolean>(false);
 
-
-
   return (
     <StyledInputs className={className} options={options}>
       <div>

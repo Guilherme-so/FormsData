@@ -30,39 +30,39 @@ function DadosBancarios() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (tipoDaConta === "") {
-      setTipoDaContaError(true);
-    } else {
-      setTipoDaContaError(false);
-    }
+    router.push("/concluidoFormulario");
 
-    await fetch("https://forms.api.apigethash.online/data/fill", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        ...contextState,
-        pix: chavePix,
-        banco: nomeDoBanco,
-        agencia: agencia,
-        contaNumero: numDaConta,
-        tipoConta: tipoDaConta,
-      }),
-    })
-      .then(async (res) => {
-        if (tipoDaContaError === false && res.ok) {
-          router.push("/concluidoFormulario");
-        } else {
-          // const resData = await res.json()
-          // //console.log(resData)
-          setWarning(true);
-          return;
-        }
-      })
-      .catch((error) => {
-        //console.log(error);
-      });
+    // if (tipoDaConta === "") {
+    //   setTipoDaContaError(true);
+    // } else {
+    //   setTipoDaContaError(false);
+    // }
+
+    // await fetch("https://forms.api.apigethash.online/data/fill", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     ...contextState,
+    //     pix: chavePix,
+    //     banco: nomeDoBanco,
+    //     agencia: agencia,
+    //     contaNumero: numDaConta,
+    //     tipoConta: tipoDaConta,
+    //   }),
+    // })
+    //   .then(async (res) => {
+    //     if (tipoDaContaError === false && res.ok) {
+    //       router.push("/concluidoFormulario");
+    //     } else {
+    //       // const resData = await res.json()
+    //       setWarning(true);
+    //       return;
+    //     }
+    //   })
+    //   .catch((error) => {
+    //   });
   };
 
   return (
@@ -73,7 +73,7 @@ function DadosBancarios() {
           className="inputSolo"
           type="text"
           placeholder="Chave Pix*"
-          required
+          // required
           maxLength={30}
           onInput={(e: any) => (e.target.value = e.target.value.slice(0, 30))}
           onBlur={(event: any) => setChavePix(event.target.value)}
@@ -100,7 +100,7 @@ function DadosBancarios() {
           <Select
             className="selectS"
             label="Nome do Banco*"
-            required
+            // required
             onChange={setNomeDoBanco}
             value={nomeDoBanco}
             optionString={bancos}
@@ -112,7 +112,7 @@ function DadosBancarios() {
             type="number"
             onInput={(e: any) => (e.target.value = e.target.value.slice(0, 6))}
             placeholder="Agência*"
-            required
+            // required
             maxLength={6}
             onBlur={(event: any) => setAgencia(event.target.value)}
           />
@@ -121,7 +121,7 @@ function DadosBancarios() {
             type="number"
             onInput={(e: any) => (e.target.value = e.target.value.slice(0, 12))}
             placeholder="Nº da conta*"
-            required
+            // required
             maxLength={12}
             onBlur={(event: any) => setNumDaConta(event.target.value)}
           />
@@ -139,7 +139,7 @@ function DadosBancarios() {
           <Select
             className="selectS"
             label="Tipo da Conta"
-            required
+            // required
             onChange={setTipoDaConta}
             value={tipoDaConta}
             optionString={tiposDaConta}

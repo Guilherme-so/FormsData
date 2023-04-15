@@ -51,19 +51,21 @@ function DadosResidenciais() {
 
   const handleSubmit = (e:FormEvent) => {
     e.preventDefault()
-    if(uf !== ""){
-    setContextState((s:any) => ({...s, 
-      cep: cep,
-      rua: rua,
-      casaNumero: casaNumber,
-      bairro: bairro,
-      apNumero: apartamento,
-      cidade: cidade,
-      uf: uf }))
     router.push("/formulario/?parte=4")
-    }else{
-      setUfError(true)
-    }
+
+    // if(uf !== ""){
+    // setContextState((s:any) => ({...s, 
+    //   cep: cep,
+    //   rua: rua,
+    //   casaNumero: casaNumber,
+    //   bairro: bairro,
+    //   apNumero: apartamento,
+    //   cidade: cidade,
+    //   uf: uf }))
+    // router.push("/formulario/?parte=4")
+    // }else{
+    //   setUfError(true)
+    // }
   }
 
   function checkCep(e: any){
@@ -87,23 +89,33 @@ function DadosResidenciais() {
 
         <Input className='inputSolo' type="number" placeholder='CEP*'
         onInput={(e:any) => e.target.value = e.target.value.slice(0, 8)}
-        required maxLength={8} value={cep} onChange={(event: any) => setCep(event.target.value)}
-        onBlur={checkCep}/>
+        // required 
+        maxLength={8} value={cep} onChange={(event: any) => setCep(event.target.value)}
+        // onBlur={checkCep}
+        />
         
         <span className='groupInput'>
-          <Input type='text' placeholder='Rua*' required maxLength={50} value={rua} onChange={(event: any) => setRua(event.target.value)}/>
+          <Input type='text' placeholder='Rua*' 
+          // required 
+          maxLength={50} value={rua} onChange={(event: any) => setRua(event.target.value)}/>
           <Input type='number' 
           onInput={(e:any) => e.target.value = e.target.value.slice(0, 6)}
-          placeholder='Número*' required maxLength={6}  value={casaNumber}  onChange={(event: any) => setCasaNumber(event.target.value)}/>
+          placeholder='Número*' 
+          // required 
+          maxLength={6}  value={casaNumber}  onChange={(event: any) => setCasaNumber(event.target.value)}/>
         </span>
 
         <span className='groupInputAp'>
-          <Input   type='text' placeholder='Bairro*' required maxLength={50} value={bairro} onChange={(event: any) => setBairro(event.target.value)}/>
+          <Input   type='text' placeholder='Bairro*'
+          //  required 
+           maxLength={50} value={bairro} onChange={(event: any) => setBairro(event.target.value)}/>
           <Input type='text' placeholder='Apt' maxLength={5} value={apartamento} onChange={(event: any) => setApartamento(event.target.value)}/>
         </span>
 
         <span className='groupInput3'>
-          <Input className='Input' type='text' placeholder='Cidade*' required maxLength={40} value={cidade} onChange={(event: any) => setCidade(event.target.value)}/>          
+          <Input className='Input' type='text' placeholder='Cidade*' 
+          // required 
+          maxLength={40} value={cidade} onChange={(event: any) => setCidade(event.target.value)}/>          
           <select className='select' id='uf' value={uf} >
             <option value=""></option>
             {
@@ -111,7 +123,12 @@ function DadosResidenciais() {
               <option className='options' key={sigla} value={sigla}>{sigla}</option>
             )}
             </select>
-            <Select className='selectS'  label='UF*' onChange={setUf} value={uf} required optionString={siglas}/>
+            <Select className='selectS'  
+            label='UF*' 
+            onChange={setUf} 
+            value={uf} 
+            // required 
+            optionString={siglas}/>
         </span>
 
         {ufError && <Paragraph>Selecione a UF</Paragraph>}

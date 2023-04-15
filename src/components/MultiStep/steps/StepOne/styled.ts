@@ -49,7 +49,6 @@ margin-top: 2rem;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-
 /* 
       .logoName {
         color: #502e88;
